@@ -1,5 +1,5 @@
 var Match = artifacts.require("./Match.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(Match);
+  deployer.deploy(Match, 'river', 'boca');
 };
