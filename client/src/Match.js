@@ -42,7 +42,6 @@ function Match({ web3, accounts, contract }) {
   React.useEffect(() => {
     async function getContractData() {
       const finalResult = await contract.methods.finalResult().call();
-      // const bets = await contract.methods.bets().call();
 
       console.log({ finalResult });
     }

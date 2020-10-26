@@ -14,8 +14,6 @@ contract Match {
     MatchResult result;
   }
 
-  uint storedData;
-
   string public homeTeamId;
   string public awayTeamId;
   // uint public matchStartDate; // Unix timestamp depicting start date
@@ -39,11 +37,6 @@ contract Match {
   }
 
   function placeBet(uint16 homeTeamScore, uint16 awayTeamScore) public payable {
-    // Bet storage newBet = bets.push();
-    // newBet.homeTeamScore = homeTeamScore;
-    // newBet.awayTeamScore = awayTeamScore;
-    // newBet.author = msg.sender;
-    // newBet.payed = false;
     bets.push(Bet({
       result: MatchResult({
         homeTeamScore: homeTeamScore,
@@ -103,12 +96,4 @@ contract Match {
       awayTeamScore: awayTeamScore
     });
   }
-
-  // function set(uint x) public {
-  //   storedData = x;
-  // }
-
-  // function get() public view returns (uint) {
-  //   return storedData;
-  // }
 }
