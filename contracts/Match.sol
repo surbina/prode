@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.5.7 <0.7.0;
-pragma experimental ABIEncoderV2;
 
 contract Match {
   struct MatchResult {
@@ -18,15 +17,15 @@ contract Match {
   string public awayTeamId;
   // uint public matchStartDate; // Unix timestamp depicting start date
   // uint public matchEndDate; // Unix timestamp depicting end date
-  Bet[] public bets; // Using a list allows for a user to make multiple bets
-  uint jackpot = 0;
+  Bet[] bets; // Using a list allows for a user to make multiple bets
+  uint public jackpot = 0;
 
   // TODO: Temporaly store match result
   MatchResult public finalResult;
 
   // TODO: implement modifiers!
-  // modifier matchHasNotStarted(uint time) { require(block.timestamp < time) _; }
-  // modifier matchHasEnded(uint time) { require(block.timestamp > time) _; }
+  // modifier matchHasNotStarted() { require(block.timestamp < time); _; }
+  // modifier matchHasEnded() { require(block.timestamp > time); _; }
 
   // constructor(string _homeTeamId, string _awayTeamId, uint _matchStartDate, uint _matchEndDate) {
   constructor(string memory _homeTeamId, string memory _awayTeamId) public {
