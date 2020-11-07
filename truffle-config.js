@@ -11,6 +11,11 @@ module.exports = {
   //   }
   // }
   //  Network config to work with ganache
+  compilers: {
+    solc: {
+      version: "0.6.0"
+    }
+  },
   networks: {
     development: {
       host: "127.0.0.1",
