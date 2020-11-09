@@ -1,12 +1,21 @@
 import React, { Component } from "react";
 import MatchContract from "./contracts/Match.json";
+import ProdeContract from './contracts/Prode.json';
 import getWeb3 from "./getWeb3";
 import Match from './Match';
+import Prode from './Prode';
 
 import "./App.css";
 
 class App extends Component {
-  state = { storageValue: 0, web3: null, accounts: null, contract: null };
+  state = {
+    storageValue: 0,
+    web3: null,
+    accounts: null,
+    contract: null,
+    matchContractAddress: '',
+    matchContract: null,
+  };
 
   componentDidMount = async () => {
     try {
@@ -22,9 +31,9 @@ class App extends Component {
 
       // Get the contract instance.
       const networkId = await web3.eth.net.getId();
-      const deployedNetwork = MatchContract.networks[networkId];
+      const deployedNetwork = ProdeContract.networks[networkId];
       const instance = new web3.eth.Contract(
-        MatchContract.abi,
+        ProdeContract.abi,
         deployedNetwork && deployedNetwork.address,
       );
 
@@ -40,16 +49,45 @@ class App extends Component {
     }
   };
 
+  getMatchContract() {
+    const { web3 } = this.state;
+    // const rest = web3.utils.checkAddressChecksum(this.state.matchContractAddress)
+    // console.log({ rest });
+
+    const instance = new web3.eth.Contract(
+      MatchContract.abi,
+      this.state.matchContractAddress,
+    );
+
+    this.setState({ matchContract: instance });
+  }
+
   render() {
     if (!this.state.web3) {
       return <div>Loading Web3, accounts, and contract...</div>;
     }
 
-    const { web3, accounts, contract } = this.state;
+    const { web3, accounts, contract, matchContract, matchContractAddress } = this.state;
 
     return (
       <div className="App">
-        <Match web3={web3} accounts={accounts} contract={contract} />
+        <Prode account={accounts[0]} contract={contract} />
+
+        <div>
+          <span>Match contract address</span>
+          <input
+            type="text"
+            value={matchContractAddress}
+            onChange={({ target: { value }}) => this.setState({ matchContractAddress: value })}
+          />
+          <input
+            type="button"
+            onClick={() => this.getMatchContract()}
+            value="Get Match"
+          />
+        </div>
+
+        {matchContract && <Match web3={web3} accounts={accounts} contract={matchContract} />}
       </div>
     );
   }

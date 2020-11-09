@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 function Match({ web3, accounts, contract }) {
-  const admin = accounts[1];
-  const playerA = accounts[2];
-  const playerB = accounts[3];
+  const admin = accounts[0];
+  const playerA = accounts[0];
+  const playerB = accounts[0];
 
   const [aPlayerResult, setAPlayerResult] = React.useState({
     home: 2,
