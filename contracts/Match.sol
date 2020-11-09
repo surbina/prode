@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.5.7 <0.7.0;
+pragma solidity ^0.6.0;
 
-contract Match {
+import '../node_modules/@openzeppelin/contracts/proxy/Initializable.sol';
+
+contract Match is Initializable {
   struct MatchResult {
     uint16 homeTeamScore;
     uint16 awayTeamScore;
@@ -28,11 +30,16 @@ contract Match {
   // modifier matchHasEnded() { require(block.timestamp > time); _; }
 
   // constructor(string _homeTeamId, string _awayTeamId, uint _matchStartDate, uint _matchEndDate) {
-  constructor(string memory _homeTeamId, string memory _awayTeamId) public {
+  // constructor(string memory _homeTeamId, string memory _awayTeamId) public {
+  //   homeTeamId = _homeTeamId;
+  //   awayTeamId = _awayTeamId;
+  //   // matchStartDate = _matchStartDate;
+  //   // matchEndDate = _matchEndDate;
+  // }
+
+  function initialize(string memory _homeTeamId, string memory _awayTeamId) public initializer {
     homeTeamId = _homeTeamId;
     awayTeamId = _awayTeamId;
-    // matchStartDate = _matchStartDate;
-    // matchEndDate = _matchEndDate;
   }
 
   function placeBet(uint16 homeTeamScore, uint16 awayTeamScore) public payable {

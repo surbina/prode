@@ -1,0 +1,26 @@
+{
+  "name": "prode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/surbina/prode.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/surbina/prode/issues"
+  },
+  "homepage": "https://github.com/surbina/prode#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "3.2.0"
+  }
+}
