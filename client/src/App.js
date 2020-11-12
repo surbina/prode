@@ -17,6 +17,12 @@ const { DrizzleProvider } = drizzleReactHooks;
 
 const drizzleOptions = {
   contracts: [Prode],
+  web3: {
+    fallback: {
+      type: 'ws',
+      url: 'ws://127.0.0.1:7545',
+    },
+  },
 };
 const drizzle = new Drizzle(drizzleOptions);
 

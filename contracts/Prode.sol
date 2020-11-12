@@ -10,6 +10,8 @@ contract Prode is CloneFactory, Ownable {
 
   address public matchImplementationContractAddress;
 
+  event MatchCreated(address matchAddress);
+
   constructor(address _matchImplementationContractAddress) public {
     matchImplementationContractAddress = _matchImplementationContractAddress;
   }
@@ -21,6 +23,7 @@ contract Prode is CloneFactory, Ownable {
     newMatch.initialize(_homeTeamId, _awayTeamId);
 
     matchAddresses.push(newMatch);
+    emit MatchCreated(address(newMatch));
   }
 
   function getMatches() external view returns (Match[] memory) {

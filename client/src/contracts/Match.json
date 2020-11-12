@@ -165,7 +165,7 @@
         "id": 39,
         "nodeType": "ImportDirective",
         "scope": 229,
-        "sourceUnit": 521,
+        "sourceUnit": 532,
         "src": "57:73:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -180,10 +180,10 @@
               "id": 40,
               "name": "Initializable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 520,
+              "referencedDeclaration": 531,
               "src": "150:13:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Initializable_$520",
+                "typeIdentifier": "t_contract$_Initializable_$531",
                 "typeString": "contract Initializable"
               }
             },
@@ -193,7 +193,7 @@
           }
         ],
         "contractDependencies": [
-          520
+          531
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -201,7 +201,7 @@
         "id": 228,
         "linearizedBaseContracts": [
           228,
-          520
+          531
         ],
         "name": "Match",
         "nodeType": "ContractDefinition",
@@ -651,7 +651,7 @@
                   "name": "initializer",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 498,
+                  "referencedDeclaration": 509,
                   "src": "1303:11:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -829,7 +829,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 535,
+                              "referencedDeclaration": 546,
                               "src": "1610:3:1",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -1025,7 +1025,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 535,
+                          "referencedDeclaration": 546,
                           "src": "1675:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1431,7 +1431,7 @@
                                     "name": "msg",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 535,
+                                    "referencedDeclaration": 546,
                                     "src": "2059:3:1",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_magic_message",
@@ -2196,7 +2196,7 @@
                                   "name": "msg",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 535,
+                                  "referencedDeclaration": 546,
                                   "src": "2504:3:1",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_magic_message",
@@ -2665,7 +2665,7 @@
         "id": 39,
         "nodeType": "ImportDirective",
         "scope": 229,
-        "sourceUnit": 521,
+        "sourceUnit": 532,
         "src": "57:73:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2680,10 +2680,10 @@
               "id": 40,
               "name": "Initializable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 520,
+              "referencedDeclaration": 531,
               "src": "150:13:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Initializable_$520",
+                "typeIdentifier": "t_contract$_Initializable_$531",
                 "typeString": "contract Initializable"
               }
             },
@@ -2693,7 +2693,7 @@
           }
         ],
         "contractDependencies": [
-          520
+          531
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -2701,7 +2701,7 @@
         "id": 228,
         "linearizedBaseContracts": [
           228,
-          520
+          531
         ],
         "name": "Match",
         "nodeType": "ContractDefinition",
@@ -3151,7 +3151,7 @@
                   "name": "initializer",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 498,
+                  "referencedDeclaration": 509,
                   "src": "1303:11:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -3329,7 +3329,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 535,
+                              "referencedDeclaration": 546,
                               "src": "1610:3:1",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -3525,7 +3525,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 535,
+                          "referencedDeclaration": 546,
                           "src": "1675:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -3931,7 +3931,7 @@
                                     "name": "msg",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 535,
+                                    "referencedDeclaration": 546,
                                     "src": "2059:3:1",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_magic_message",
@@ -4696,7 +4696,7 @@
                                   "name": "msg",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 535,
+                                  "referencedDeclaration": 546,
                                   "src": "2504:3:1",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_magic_message",
@@ -5146,12 +5146,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x469d465A3B57E19868fD2895c9ccA0ED7e9d3bB3",
-      "transactionHash": "0xba0ec3e72dd8bfda7dde5cde1ba87d86a85c6a97fba97b43363813d898df1170"
+      "address": "0x3a97a4739A84e0FB84476BD804EEd40070F11310",
+      "transactionHash": "0x25e60500e91654b852c9f1a987ffc8d48cf608facece1c6a90563968f4116020"
     }
   },
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-11-12T00:18:20.552Z",
+  "updatedAt": "2020-11-16T23:33:24.591Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

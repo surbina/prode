@@ -26,7 +26,6 @@ module.exports = {
       version: 'detect',
     },
   },
-  ignorePatterns: ['node_modules/'],
   rules: {
     'prettier/prettier': [2, prettierConfig],
     'arrow-body-style': [2, 'as-needed'],
