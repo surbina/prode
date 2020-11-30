@@ -5,15 +5,13 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
-import { drizzleReactHooks } from '@drizzle/react-plugin';
+import { DrizzleContext } from '@drizzle/react-plugin';
 import { Drizzle } from '@drizzle/store';
 
 import Admin from './Admin';
 import Match from './Match';
 import MatchList from './MatchList';
 import Prode from './contracts/Prode.json';
-
-const { DrizzleProvider } = drizzleReactHooks;
 
 const drizzleOptions = {
   contracts: [Prode],
@@ -29,7 +27,7 @@ const drizzle = new Drizzle(drizzleOptions);
 function App() {
   return (
     <Router>
-      <DrizzleProvider drizzle={drizzle}>
+      <DrizzleContext.Provider drizzle={drizzle}>
         <Switch>
           <Route path="/admin">
             <Admin />
@@ -44,7 +42,7 @@ function App() {
             <Redirect to="/matches" />
           </Route>
         </Switch>
-      </DrizzleProvider>
+      </DrizzleContext.Provider>
     </Router>
   );
 }
