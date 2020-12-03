@@ -28,20 +28,33 @@ function App() {
   return (
     <Router>
       <DrizzleContext.Provider drizzle={drizzle}>
-        <Switch>
-          <Route path="/admin">
-            <Admin />
-          </Route>
-          <Route path="/matches" exact>
-            <MatchList />
-          </Route>
-          <Route path="/matches/:id">
-            <Match />
-          </Route>
-          <Route path="/">
-            <Redirect to="/matches" />
-          </Route>
-        </Switch>
+        <DrizzleContext.Consumer>
+          {({ initialized, drizzleState }) => {
+            const isLoaded =
+              initialized && drizzleState.contracts.Prode.initialized;
+
+            if (!isLoaded) {
+              return null; // TODO: implement a loading screen
+            }
+
+            return (
+              <Switch>
+                <Route path="/admin">
+                  <Admin />
+                </Route>
+                <Route path="/matches" exact>
+                  <MatchList />
+                </Route>
+                <Route path="/matches/:id">
+                  <Match />
+                </Route>
+                <Route path="/">
+                  <Redirect to="/matches" />
+                </Route>
+              </Switch>
+            );
+          }}
+        </DrizzleContext.Consumer>
       </DrizzleContext.Provider>
     </Router>
   );

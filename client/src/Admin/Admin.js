@@ -1,10 +1,7 @@
 import * as React from 'react';
-// import { drizzleReactHooks } from '@drizzle/react-plugin';
 
 import MatchItem from './MatchItem';
-// import Match from '../contracts/Match.json';
-import { useDrizzle, useCacheCall, useCacheSend } from '../drizzleHooks';
-// const { useDrizzle, useDrizzleState } = drizzleReactHooks;
+import { useCacheCall, useCacheSend, useDrizzle } from '../drizzleHooks';
 
 function Admin() {
   const [homeTeamName, setHomeTeamName] = React.useState('river');
@@ -12,63 +9,10 @@ function Admin() {
 
   const { drizzleState } = useDrizzle();
 
-  // const account = useDrizzleState(({ accounts }) => accounts[0]);
   const account = drizzleState.accounts[0];
-
-  // const { useCacheSend, useCacheCall, drizzle } = useDrizzle();
 
   const { send } = useCacheSend('Prode', 'createMatch');
   const matchesIds = useCacheCall('Prode', 'getMatches') || [];
-
-  // const ProdeContract = useDrizzleState(({ contracts: { Prode } }) => Prode);
-
-  // const state = drizzleState; // useDrizzleState((s) => s);
-
-  // React.useEffect(() => {
-  //   // const { Prode, ...matches } = state.contracts;
-  //   const { contracts, web3 } = state;
-
-  //   // console.log({ contracts, web3 });
-
-  //   console.log('sfsdfsdf', web3);
-
-  //   // if (!web3 || !web3.eth) {
-  //   //   return;
-  //   // }
-
-  //   (matchesIds || []).forEach((matchId) => {
-  //     if (!contracts[matchId]) {
-  //       console.log('hola: ', matchId);
-  //       const contractName = matchId;
-  //       // const web3Contract = new web3.eth.Contract(Match.abi, contractName); // second argument is new contract's address
-
-  //       // const { abi, networks, deployedBytecode } = contractConfig
-  //       const contractConfig = {
-  //         ...Match,
-  //         contractName,
-  //       };
-
-  //       drizzle.addContract(contractConfig);
-
-  //       // const contractConfig = { contractName, web3Contract };
-  //       // const events = [];
-
-  //       // drizzle.store.dispatch({
-  //       //   type: 'ADD_CONTRACT',
-  //       //   contractConfig,
-  //       //   events,
-  //       // });
-
-  //       // drizzle.store.dispatch({
-  //       //   type: 'ADD_CONTRACT',
-  //       //   contractConfig,
-  //       //   events,
-  //       // });
-  //     }
-  //   });
-  // }, [drizzle, matchesIds, state]);
-
-  console.log({ matchesIds });
 
   const createMatch = () => {
     send(homeTeamName, awayTeamName, {
@@ -109,16 +53,4 @@ function Admin() {
   );
 }
 
-function Loaded() {
-  const { drizzleState, initialized } = useDrizzle();
-
-  const isLoaded = initialized && drizzleState.contracts.Prode.initialized;
-
-  if (!isLoaded) {
-    return null;
-  }
-
-  return <Admin />;
-}
-
-export default Loaded;
+export default Admin;

@@ -8,7 +8,7 @@ function useCacheCall(contractName, methodName) {
   const contract = drizzle.contracts[contractName];
 
   useEffect(() => {
-    if (drizzleState.drizzleStatus.initialized) {
+    if (drizzleState.drizzleStatus.initialized && contract) {
       const newDataKey = contract.methods[methodName].cacheCall();
       setDataKey(newDataKey);
     }
