@@ -45,7 +45,7 @@ function App() {
                 <Route path="/matches" exact>
                   <MatchList />
                 </Route>
-                <Route path="/matches/:id">
+                <Route path="/matches/:matchAddress">
                   <Match />
                 </Route>
                 <Route path="/">

@@ -1,0 +1,9 @@
+.match {
+  padding: 20px;
+}
+
+.match form {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}

@@ -20,11 +20,16 @@ function useCacheCall(contractName, methodName) {
     drizzleState.drizzleStatus.initialized,
   ]);
 
-  return initialized &&
-    dataKey &&
-    drizzleState.contracts[contractName][methodName][dataKey]
-    ? drizzleState.contracts[contractName][methodName][dataKey].value
-    : null;
+  return {
+    value:
+      initialized &&
+      dataKey &&
+      drizzleState.contracts[contractName][methodName][dataKey]
+        ? drizzleState.contracts[contractName][methodName][dataKey].value
+        : null,
+    isLoading:
+      initialized || !drizzleState.contracts[contractName][methodName][dataKey],
+  };
 }
 
 export default useCacheCall;

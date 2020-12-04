@@ -1,25 +1,30 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
 import Match from '../contracts/Match.json';
 import { useCacheCall, useLoadContract } from '../drizzleHooks';
 
-function MatchItem({ matchAddress }) {
+function MatchRow({ matchAddress }) {
   useLoadContract(Match, matchAddress);
 
   const { value: homeTeamName } = useCacheCall(matchAddress, 'homeTeamId');
   const { value: awayTeamName } = useCacheCall(matchAddress, 'awayTeamId');
 
   return (
-    <div>
-      <div>match address: {matchAddress}</div>
-      <div>home team: {homeTeamName}</div>
-      <div>away team: {awayTeamName}</div>
-    </div>
+    <tr>
+      <td>{matchAddress}</td>
+      <td>{homeTeamName}</td>
+      <td>{awayTeamName}</td>
+      <td>
+        <Link to={`/matches/${matchAddress}`}>Place bet</Link>
+      </td>
+    </tr>
   );
 }
 
-MatchItem.propTypes = {
+MatchRow.propTypes = {
   matchAddress: PropTypes.string.isRequired,
 };
 
-export default MatchItem;
+export default MatchRow;

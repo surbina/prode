@@ -12,7 +12,7 @@ function Admin() {
   const account = drizzleState.accounts[0];
 
   const { send } = useCacheSend('Prode', 'createMatch');
-  const matchesIds = useCacheCall('Prode', 'getMatches') || [];
+  const { value: matchesIds } = useCacheCall('Prode', 'getMatches');
 
   const createMatch = () => {
     send(homeTeamName, awayTeamName, {
@@ -45,7 +45,7 @@ function Admin() {
       </div>
       <div>
         <h4>List of matches</h4>
-        {matchesIds.map((matchAddress) => (
+        {(matchesIds || []).map((matchAddress) => (
           <MatchItem key={matchAddress} matchAddress={matchAddress} />
         ))}
       </div>

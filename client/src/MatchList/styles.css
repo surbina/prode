@@ -1,0 +1,7 @@
+.match-list {
+  padding: 20px;
+}
+
+.match-list td, th {
+  border: 1px solid black;
+}
