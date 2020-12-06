@@ -1,3 +1,4 @@
 import Admin from './Admin';
+import MatchAdminDetail from './MatchDetail';
 
-export default Admin;
+export { Admin, MatchAdminDetail };

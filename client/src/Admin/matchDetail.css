@@ -1,13 +1,9 @@
-.match {
+.match-detail {
   padding: 20px;
 }
 
-.match form {
+.match-detail form {
   display: flex;
   flex-direction: column;
   width: 200px;
-}
-
-.match .button {
-  margin-bottom: 40px;
 }

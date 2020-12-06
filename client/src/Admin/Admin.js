@@ -3,6 +3,8 @@ import * as React from 'react';
 import MatchItem from './MatchItem';
 import { useCacheCall, useCacheSend, useDrizzle } from '../drizzleHooks';
 
+import './admin.css';
+
 function Admin() {
   const [homeTeamName, setHomeTeamName] = React.useState('river');
   const [awayTeamName, setAwayTeamName] = React.useState('boca');
@@ -22,7 +24,7 @@ function Admin() {
   };
 
   return (
-    <div>
+    <div className="admin">
       <h3>Admin page</h3>
       <div>
         <div>

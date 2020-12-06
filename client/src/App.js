@@ -8,7 +8,7 @@ import {
 import { DrizzleContext } from '@drizzle/react-plugin';
 import { Drizzle } from '@drizzle/store';
 
-import Admin from './Admin';
+import { Admin, MatchAdminDetail } from './Admin';
 import Match from './Match';
 import MatchList from './MatchList';
 import Prode from './contracts/Prode.json';
@@ -34,13 +34,16 @@ function App() {
               initialized && drizzleState.contracts.Prode.initialized;
 
             if (!isLoaded) {
-              return null; // TODO: implement a loading screen
+              return null;
             }
 
             return (
               <Switch>
-                <Route path="/admin">
+                <Route path="/admin" exact>
                   <Admin />
+                </Route>
+                <Route path="/admin/:matchAddress">
+                  <MatchAdminDetail />
                 </Route>
                 <Route path="/matches" exact>
                   <MatchList />

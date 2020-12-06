@@ -28,7 +28,9 @@ function useCacheCall(contractName, methodName) {
         ? drizzleState.contracts[contractName][methodName][dataKey].value
         : null,
     isLoading:
-      initialized || !drizzleState.contracts[contractName][methodName][dataKey],
+      !initialized ||
+      !drizzleState.contracts[contractName] ||
+      !drizzleState.contracts[contractName][methodName][dataKey],
   };
 }
 

@@ -5,8 +5,8 @@ import '../node_modules/@openzeppelin/contracts/proxy/Initializable.sol';
 
 contract Match is Initializable {
   struct MatchResult {
-    uint16 homeTeamScore;
-    uint16 awayTeamScore;
+    int16 homeTeamScore;
+    int16 awayTeamScore;
   }
 
   struct Bet {
@@ -40,9 +40,18 @@ contract Match is Initializable {
   function initialize(string memory _homeTeamId, string memory _awayTeamId) public initializer {
     homeTeamId = _homeTeamId;
     awayTeamId = _awayTeamId;
+
+    // Init final result with negatives values
+    finalResult = MatchResult({
+      homeTeamScore: -1,
+      awayTeamScore: -1
+    });
   }
 
-  function placeBet(uint16 homeTeamScore, uint16 awayTeamScore) public payable {
+  function placeBet(int16 homeTeamScore, int16 awayTeamScore) public payable {
+    require(homeTeamScore > -1, "Home Team Score must be greater than or equal to 0");
+    require(awayTeamScore > -1, "Away Team Score must be greater than or equal to 0");
+
     bets.push(Bet({
       result: MatchResult({
         homeTeamScore: homeTeamScore,
@@ -95,8 +104,10 @@ contract Match is Initializable {
     return true;
   }
 
-  function setFinalResult(uint16 homeTeamScore, uint16 awayTeamScore) public {
-    // test
+  function setFinalResult(int16 homeTeamScore, int16 awayTeamScore) public {
+    require(homeTeamScore > -1, "Home Team Score must be greater than or equal to 0");
+    require(awayTeamScore > -1, "Away Team Score must be greater than or equal to 0");
+  
     finalResult = MatchResult({
       homeTeamScore: homeTeamScore,
       awayTeamScore: awayTeamScore

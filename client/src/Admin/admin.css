@@ -1,0 +1,18 @@
+.admin {
+  padding: 20px;
+}
+
+.admin .match-item {
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.admin .match-item .match-data {
+  margin-right: 20px;
+}
+
+.admin .match-item form {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
