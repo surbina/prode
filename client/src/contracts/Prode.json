@@ -61,7 +61,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -74,7 +75,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -87,7 +89,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -143,7 +146,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.6.0+commit.26b70077\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_matchImplementationContractAddress\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"matchAddress\",\"type\":\"address\"}],\"name\":\"MatchCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_homeTeamId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_awayTeamId\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_matchStartDate\",\"type\":\"uint256\"}],\"name\":\"createMatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getMatches\",\"outputs\":[{\"internalType\":\"contract Match[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"matchAddresses\",\"outputs\":[{\"internalType\":\"contract Match\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"matchImplementationContractAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner.     * NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/surbina/playground/prode/contracts/Prode.sol\":\"Prode\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/surbina/playground/prode/contracts/CloneFactory.sol\":{\"keccak256\":\"0x05d4517d5595b7d2ad35d3c11f3aacc4feab04e4621f91338d4c45672031ce50\",\"urls\":[\"bzz-raw://532914c00f313429c93030bbf2b5925badc280a106fd6935b04615ce366dc288\",\"dweb:/ipfs/QmUAw7H7UMPdcdSLnw2Ve3S2ZrUiGU5J89EPDYDMda7Fyh\"]},\"/Users/surbina/playground/prode/contracts/Match.sol\":{\"keccak256\":\"0xc2932725aa34fd3dd00aa7c42e7794b553efc1278edf79104b3e3cf57be8136a\",\"urls\":[\"bzz-raw://3073eea675e74dff8ca4d0c0c954fcf896f12186af47580c30b71927967074e2\",\"dweb:/ipfs/QmYB2ToPxQvqG2TWtowjBzhn5PUrKGAmaTwzKJ8C4efugP\"]},\"/Users/surbina/playground/prode/contracts/Prode.sol\":{\"keccak256\":\"0x689f82532c2d34a20cac8656bb64231f69f2ea0e19b201fc832f026add9d0a1a\",\"urls\":[\"bzz-raw://2dea137e0b6eb4c144ec2476caa146425c72234051cb811a1faab92d31bb9b35\",\"dweb:/ipfs/QmWn64YFyXtcv8DypvUxY5rTZjkcrAMigzM1tScz6ZHpjL\"]},\"/Users/surbina/playground/prode/node_modules/@openzeppelin/contracts/GSN/Context.sol\":{\"keccak256\":\"0xdb26cbf4d028490f49831a7865c2fe1b28db44b535ca8d343785a3b768aae183\",\"urls\":[\"bzz-raw://840b14ce0315c47d49ba328f1f9fa7654ded1c9e1559e6c5e777a7b2dc28bf0a\",\"dweb:/ipfs/QmTLLabn4wcfGro9LEmUXUN2nwKqZSotXMvjDCLXEnLtZP\"]},\"/Users/surbina/playground/prode/node_modules/@openzeppelin/contracts/access/Ownable.sol\":{\"keccak256\":\"0x4bd6402ca6b3419008c2b482aff54e66836e8cb4eba2680e42ac5884ae6424fc\",\"urls\":[\"bzz-raw://8f9f711fb8d0d92aeea1c327e3845d13ca1fa8f142e47f8723cd5b3106fb29a3\",\"dweb:/ipfs/QmVQUReDW9f4zGqhizwHnyU8EntMs95tbASdqkGncnikba\"]},\"/Users/surbina/playground/prode/node_modules/@openzeppelin/contracts/proxy/Initializable.sol\":{\"keccak256\":\"0x8eee8bd8c216a3e437bf7a4c9844348f47a2d990e5b06cd96d250e33ab04c25a\",\"urls\":[\"bzz-raw://c6bb2af880b12be26b148ee99ac3a984168e7fc74721bab9cd44598a0669b038\",\"dweb:/ipfs/QmPfFDaXZbThJgaVim7nvxrw1RuD2xKWCG89K6pznmC8pJ\"]}},\"version\":1}",
@@ -2137,9 +2141,50 @@
     "name": "solc",
     "version": "0.6.0+commit.26b70077.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {
+        "0x3aa3d00415f3f11d0b2a9188d088bfdb4956bef650b1726c57101527a98ad7a9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "matchAddress",
+              "type": "address"
+            }
+          ],
+          "name": "MatchCreated",
+          "type": "event"
+        },
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xD2aE182226a8Ae60190F0c80802e48206a452A7d",
+      "transactionHash": "0xe10b42255b2587c7f04e7645bab23ea9e473d46ee97b75b7bcb21d05312dcef3"
+    }
+  },
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-12-07T23:11:35.848Z",
+  "updatedAt": "2020-12-07T23:19:56.218Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {
       "owner()": {
