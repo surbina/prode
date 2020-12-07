@@ -5,7 +5,6 @@ import '../node_modules/@openzeppelin/contracts/proxy/Initializable.sol';
 import '../node_modules/@openzeppelin/contracts/access/Ownable.sol';
 
 contract Match is Initializable, Ownable {
-  // TODO: add contract status in case a Match is suspended
   struct MatchResult {
     int16 homeTeamScore;
     int16 awayTeamScore;
@@ -26,13 +25,11 @@ contract Match is Initializable, Ownable {
   uint public jackpot = 0;
   uint public prizeAmount = 0; // Calculated after the final result is know, hold the amount of ether each winner will get
 
-  // TODO: Temporaly store match result
   MatchResult public finalResult;
 
   /////////////////////
   //     Modifiers    //
   /////////////////////
-
 
   modifier betsAreOpen() {
     // Users can place bet up to one hour before the match starts
@@ -91,7 +88,6 @@ contract Match is Initializable, Ownable {
   /////////////////////
   //  User functions //
   /////////////////////
-
 
   function placeBet(
     int16 homeTeamScore,
@@ -156,6 +152,15 @@ contract Match is Initializable, Ownable {
     }
 
     return true;
+  }
+
+  function getCurrentBet() public view userHasPlacedBet returns(int16 homeTeamScore, int16 awayTeamScore) {
+    Bet memory bet = betsMap[msg.sender];
+
+    return (
+      bet.result.homeTeamScore,
+      bet.result.awayTeamScore
+    );
   }
 
   /////////////////////
