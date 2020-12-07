@@ -7,6 +7,17 @@ import es from 'date-fns/locale/es';
 
 import Match from '../contracts/Match.json';
 import { useCacheCall, useLoadContract } from '../drizzleHooks';
+
+const getFinalResult = (homeTeamName, awayTeamName, currentBet) => {
+  if (
+    !currentBet ||
+    (currentBet.homeTeamScore === '-1' && currentBet.awayTeamScore === '-1')
+  ) {
+    return 'Final results are not ready yet';
+  }
+
+  return `${homeTeamName} ${currentBet.homeTeamScore} - ${awayTeamName} ${currentBet.awayTeamScore}`;
+};
 function MatchItem({ matchAddress }) {
   useLoadContract(Match, matchAddress);
 
@@ -16,19 +27,7 @@ function MatchItem({ matchAddress }) {
     matchAddress,
     'matchStartDate'
   );
-  const { value: finalResult, isLoading: isLoadingFinalResult } = useCacheCall(
-    matchAddress,
-    'finalResult'
-  );
-
-  const homeTeamFinalScore =
-    isLoadingFinalResult || finalResult.homeTeamScore === '-1'
-      ? '-'
-      : finalResult.homeTeamScore;
-  const awayTeamFinalScore =
-    isLoadingFinalResult || finalResult.awayTeamScore === '-1'
-      ? '-'
-      : finalResult.awayTeamScore;
+  const { value: finalResult } = useCacheCall(matchAddress, 'finalResult');
 
   const startDate = fromUnixTime(parseInt(matchStartDate || 0, 10));
 
@@ -43,8 +42,8 @@ function MatchItem({ matchAddress }) {
           {format(startDate, "d 'de' MMMM yyyy '-' HH:mm 'hr'", { locale: es })}
         </div>
         <div>
-          Final result: {homeTeamName} {homeTeamFinalScore} / {awayTeamName}{' '}
-          {awayTeamFinalScore}{' '}
+          Final result:{' '}
+          {getFinalResult(homeTeamName, awayTeamName, finalResult)}
         </div>
         <Link to={`/admin/${matchAddress}`}>Set Final Score</Link>
       </div>

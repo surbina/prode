@@ -162,13 +162,18 @@ contract Match is Initializable {
     return true;
   }
 
-  function getCurrentBet() public view userHasPlacedBet returns(int16 homeTeamScore, int16 awayTeamScore) {
-    Bet memory bet = betsMap[msg.sender];
+  function getCurrentBet() public view returns(int16 homeTeamScore, int16 awayTeamScore) {
+    if(hasPlacedBet(msg.sender)) {
+      Bet memory bet = betsMap[msg.sender];
 
-    return (
-      bet.result.homeTeamScore,
-      bet.result.awayTeamScore
-    );
+      return (
+        bet.result.homeTeamScore,
+        bet.result.awayTeamScore
+      );
+    }
+
+    // If the user has not placed any bet return -1
+    return(-1, -1);
   }
 
   /////////////////////

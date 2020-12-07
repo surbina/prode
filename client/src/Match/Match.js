@@ -15,6 +15,28 @@ import {
 
 import './styles.css';
 
+const getCurrentBet = (homeTeamName, awayTeamName, currentBet) => {
+  if (
+    !currentBet ||
+    (currentBet.homeTeamScore === '-1' && currentBet.awayTeamScore === '-1')
+  ) {
+    return "You haven't placed any bets yet";
+  }
+
+  return `${homeTeamName} ${currentBet.homeTeamScore} - ${awayTeamName} ${currentBet.awayTeamScore}`;
+};
+
+const getFinalResult = (homeTeamName, awayTeamName, currentBet) => {
+  if (
+    !currentBet ||
+    (currentBet.homeTeamScore === '-1' && currentBet.awayTeamScore === '-1')
+  ) {
+    return 'Final results are not ready yet';
+  }
+
+  return `${homeTeamName} ${currentBet.homeTeamScore} - ${awayTeamName} ${currentBet.awayTeamScore}`;
+};
+
 function Match() {
   const { matchAddress } = useParams();
   const formRef = React.useRef(null);
@@ -30,21 +52,10 @@ function Match() {
     matchAddress,
     'matchStartDate'
   );
-  const { value: finalResult, isLoading: isLoadingFinalResult } = useCacheCall(
-    matchAddress,
-    'finalResult'
-  );
+  const { value: currentBet } = useCacheCall(matchAddress, 'getCurrentBet');
+  const { value: finalResult } = useCacheCall(matchAddress, 'finalResult');
   const { send: placeBet } = useCacheSend(matchAddress, 'placeBet');
   const { send: claimBet } = useCacheSend(matchAddress, 'claimBet');
-
-  const homeTeamFinalScore =
-    isLoadingFinalResult || finalResult.homeTeamScore === '-1'
-      ? '-'
-      : finalResult.homeTeamScore;
-  const awayTeamFinalScore =
-    isLoadingFinalResult || finalResult.awayTeamScore === '-1'
-      ? '-'
-      : finalResult.awayTeamScore;
 
   const startDate = fromUnixTime(parseInt(matchStartDate || 0, 10));
 
@@ -79,8 +90,10 @@ function Match() {
       </div>
       <div>Jackpot: {drizzle.web3.utils.fromWei(`${jackpot || 0}`)} ether</div>
       <div>
-        Final result: {homeTeamName} {homeTeamFinalScore} / {awayTeamName}{' '}
-        {awayTeamFinalScore}{' '}
+        Current bet: {getCurrentBet(homeTeamName, awayTeamName, currentBet)}
+      </div>
+      <div>
+        Final result: {getFinalResult(homeTeamName, awayTeamName, finalResult)}
       </div>
       <div>
         <button type="button" onClick={handleClaimBet}>
