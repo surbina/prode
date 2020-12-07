@@ -16,11 +16,15 @@ contract Prode is CloneFactory, Ownable {
     matchImplementationContractAddress = _matchImplementationContractAddress;
   }
 
-  function createMatch(string calldata _homeTeamId, string calldata _awayTeamId) external {
+  function createMatch(
+    string calldata _homeTeamId,
+    string calldata _awayTeamId,
+    uint _matchStartDate
+  ) external {
     Match newMatch = Match(
       createClone(matchImplementationContractAddress)
     );
-    newMatch.initialize(_homeTeamId, _awayTeamId);
+    newMatch.initialize(_homeTeamId, _awayTeamId, _matchStartDate);
     newMatch.transferOwnership(owner());
 
     matchAddresses.push(newMatch);
