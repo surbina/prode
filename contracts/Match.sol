@@ -2,8 +2,9 @@
 pragma solidity ^0.6.0;
 
 import '../node_modules/@openzeppelin/contracts/proxy/Initializable.sol';
+import '../node_modules/@openzeppelin/contracts/access/Ownable.sol';
 
-contract Match is Initializable {
+contract Match is Initializable, Ownable {
   struct MatchResult {
     int16 homeTeamScore;
     int16 awayTeamScore;
@@ -28,14 +29,6 @@ contract Match is Initializable {
   // TODO: implement modifiers!
   // modifier matchHasNotStarted() { require(block.timestamp < time); _; }
   // modifier matchHasEnded() { require(block.timestamp > time); _; }
-
-  // constructor(string _homeTeamId, string _awayTeamId, uint _matchStartDate, uint _matchEndDate) {
-  // constructor(string memory _homeTeamId, string memory _awayTeamId) public {
-  //   homeTeamId = _homeTeamId;
-  //   awayTeamId = _awayTeamId;
-  //   // matchStartDate = _matchStartDate;
-  //   // matchEndDate = _matchEndDate;
-  // }
 
   function initialize(string memory _homeTeamId, string memory _awayTeamId) public initializer {
     homeTeamId = _homeTeamId;

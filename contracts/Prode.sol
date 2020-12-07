@@ -21,6 +21,7 @@ contract Prode is CloneFactory, Ownable {
       createClone(matchImplementationContractAddress)
     );
     newMatch.initialize(_homeTeamId, _awayTeamId);
+    newMatch.transferOwnership(owner());
 
     matchAddresses.push(newMatch);
     emit MatchCreated(address(newMatch));
