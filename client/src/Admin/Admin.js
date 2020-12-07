@@ -1,13 +1,20 @@
 import * as React from 'react';
+import DatePicker, { registerLocale } from 'react-datepicker';
+import es from 'date-fns/locale/es';
+import getUnixTime from 'date-fns/getUnixTime';
 
 import MatchItem from './MatchItem';
 import { useCacheCall, useCacheSend, useDrizzle } from '../drizzleHooks';
 
+import 'react-datepicker/dist/react-datepicker.css';
 import './admin.css';
+
+registerLocale('es', es);
 
 function Admin() {
   const [homeTeamName, setHomeTeamName] = React.useState('river');
   const [awayTeamName, setAwayTeamName] = React.useState('boca');
+  const [startDateTime, setStartDateTime] = React.useState(new Date());
 
   const { drizzleState } = useDrizzle();
 
@@ -17,7 +24,7 @@ function Admin() {
   const { value: matchesIds } = useCacheCall('Prode', 'getMatches');
 
   const createMatch = () => {
-    send(homeTeamName, awayTeamName, {
+    send(homeTeamName, awayTeamName, getUnixTime(startDateTime), {
       from: account,
       gas: 300000,
     });
@@ -41,6 +48,17 @@ function Admin() {
             type="text"
             value={awayTeamName}
             onChange={({ target: { value } }) => setAwayTeamName(value)}
+          />
+        </div>
+        <div>
+          <span>Date and time:</span>
+          <DatePicker
+            selected={startDateTime}
+            onChange={setStartDateTime}
+            showTimeSelect
+            dateFormat="Pp"
+            timeIntervals={5}
+            locale="es"
           />
         </div>
         <input type="button" onClick={createMatch} value="Create match" />

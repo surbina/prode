@@ -18,6 +18,7 @@ function MatchList() {
             <th>Match Address</th>
             <th>Home Team</th>
             <th>Away Team</th>
+            <th>Date</th>
             <th>Actions</th>
           </tr>
         </thead>

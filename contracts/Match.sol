@@ -2,9 +2,8 @@
 pragma solidity ^0.6.0;
 
 import '../node_modules/@openzeppelin/contracts/proxy/Initializable.sol';
-import '../node_modules/@openzeppelin/contracts/access/Ownable.sol';
 
-contract Match is Initializable, Ownable {
+contract Match is Initializable {
   struct MatchResult {
     int16 homeTeamScore;
     int16 awayTeamScore;
@@ -25,6 +24,7 @@ contract Match is Initializable, Ownable {
   uint public jackpot = 0;
   uint public prizeAmount = 0; // Calculated after the final result is know, hold the amount of ether each winner will get
 
+  address private owner;
   MatchResult public finalResult;
 
   /////////////////////
@@ -65,18 +65,26 @@ contract Match is Initializable, Ownable {
     _;
   }
 
+  modifier onlyOwner() {
+    // Only the owner can execute this method
+    require(owner == msg.sender, "Caller is not the owner");
+    _;
+  }
+
   // initialize function replaces constructor
   // check the Initializable contract for further information
   function initialize(
     string memory _homeTeamId,
     string memory _awayTeamId,
-    uint _matchStartDate
-  ) public onlyOwner initializer {
+    uint _matchStartDate,
+    address _owner
+  ) public initializer {
     require(_matchStartDate > 0, 'Match start date must be greater than 0');
 
     homeTeamId = _homeTeamId;
     awayTeamId = _awayTeamId;
     matchStartDate = _matchStartDate;
+    owner = _owner;
 
     // Init final result with negatives values
     finalResult = MatchResult({

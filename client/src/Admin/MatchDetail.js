@@ -1,5 +1,8 @@
 import * as React from 'react';
 import { useParams, Link } from 'react-router-dom';
+import fromUnixTime from 'date-fns/fromUnixTime';
+import format from 'date-fns/format';
+import es from 'date-fns/locale/es';
 
 import MatchContractData from '../contracts/Match.json';
 import {
@@ -23,7 +26,13 @@ function MatchDetail() {
   const { value: homeTeamName } = useCacheCall(matchAddress, 'homeTeamId');
   const { value: awayTeamName } = useCacheCall(matchAddress, 'awayTeamId');
   const { value: jackpot } = useCacheCall(matchAddress, 'jackpot');
+  const { value: matchStartDate } = useCacheCall(
+    matchAddress,
+    'matchStartDate'
+  );
   const { send: setFinalResult } = useCacheSend(matchAddress, 'setFinalResult');
+
+  const startDate = fromUnixTime(parseInt(matchStartDate || 0, 10));
 
   const handleSetFinaResult = (e) => {
     e.preventDefault();
@@ -44,6 +53,10 @@ function MatchDetail() {
       <h3>Match detail page</h3>
       <div>Home Team: {homeTeamName}</div>
       <div>Away Team: {awayTeamName}</div>
+      <div>
+        Date:{' '}
+        {format(startDate, "d 'de' MMMM yyyy '-' HH:mm 'hr'", { locale: es })}
+      </div>
       <div>Jackpot: {drizzle.web3.utils.fromWei(`${jackpot || 0}`)} ether</div>
 
       <h4>Set final result</h4>
