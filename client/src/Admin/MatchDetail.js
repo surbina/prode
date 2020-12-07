@@ -50,16 +50,16 @@ function MatchDetail() {
 
   return (
     <div className="match-detail">
-      <h3>Match detail page</h3>
-      <div>Home Team: {homeTeamName}</div>
-      <div>Away Team: {awayTeamName}</div>
+      <h3>Detalle de partido</h3>
+      <div>Equipo local: {homeTeamName}</div>
+      <div>Equipo visitante: {awayTeamName}</div>
       <div>
-        Date:{' '}
+        Fecha y hora:{' '}
         {format(startDate, "d 'de' MMMM yyyy '-' HH:mm 'hr'", { locale: es })}
       </div>
-      <div>Jackpot: {drizzle.web3.utils.fromWei(`${jackpot || 0}`)} ether</div>
+      <div>Pozo: {drizzle.web3.utils.fromWei(`${jackpot || 0}`)} ether</div>
 
-      <h4>Set final result</h4>
+      <h4>Configurar resultado final</h4>
       <form ref={formRef} onSubmit={handleSetFinaResult}>
         <label htmlFor="homeTeamScore">{homeTeamName}</label>
         <input
@@ -79,7 +79,7 @@ function MatchDetail() {
 
         <input name="Place Bet" type="submit" />
       </form>
-      <Link to="/admin">Go back to Admin</Link>
+      <Link to="/admin">Volver a la pantalla de administración</Link>
     </div>
   );
 }

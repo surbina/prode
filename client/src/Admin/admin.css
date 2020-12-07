@@ -2,6 +2,10 @@
   padding: 20px;
 }
 
+.admin .label {
+  margin-right: 20px;
+}
+
 .admin .match-item {
   margin-bottom: 20px;
   display: flex;
@@ -15,4 +19,9 @@
   display: flex;
   flex-direction: column;
   width: 200px;
+}
+
+.admin a {
+  display: block;
+  margin-top: 40px;
 }

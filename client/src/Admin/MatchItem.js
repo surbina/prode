@@ -13,7 +13,7 @@ const getFinalResult = (homeTeamName, awayTeamName, currentBet) => {
     !currentBet ||
     (currentBet.homeTeamScore === '-1' && currentBet.awayTeamScore === '-1')
   ) {
-    return 'Final results are not ready yet';
+    return 'El resultado final no está listo todavía';
   }
 
   return `${homeTeamName} ${currentBet.homeTeamScore} - ${awayTeamName} ${currentBet.awayTeamScore}`;
@@ -34,18 +34,18 @@ function MatchItem({ matchAddress }) {
   return (
     <div className="match-item">
       <div className="match-data">
-        <div>Match Address: {matchAddress}</div>
-        <div>Home Team: {homeTeamName}</div>
-        <div>Away Team: {awayTeamName}</div>
+        <div>Id del partido: {matchAddress}</div>
+        <div>Equipo local: {homeTeamName}</div>
+        <div>Equipo visitante: {awayTeamName}</div>
         <div>
-          Date:{' '}
+          Fecha y hora:{' '}
           {format(startDate, "d 'de' MMMM yyyy '-' HH:mm 'hr'", { locale: es })}
         </div>
         <div>
-          Final result:{' '}
+          Resultado final:{' '}
           {getFinalResult(homeTeamName, awayTeamName, finalResult)}
         </div>
-        <Link to={`/admin/${matchAddress}`}>Set Final Score</Link>
+        <Link to={`/admin/${matchAddress}`}>Completar resultado final</Link>
       </div>
     </div>
   );

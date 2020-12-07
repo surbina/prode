@@ -32,10 +32,10 @@ function Admin() {
 
   return (
     <div className="admin">
-      <h3>Admin page</h3>
+      <h3>Página de administración</h3>
       <div>
         <div>
-          <span>Home team name</span>
+          <span className="label">Equipo local</span>
           <input
             type="text"
             value={homeTeamName}
@@ -43,7 +43,7 @@ function Admin() {
           />
         </div>
         <div>
-          <span>Away team name</span>
+          <span className="label">Equipo visitante</span>
           <input
             type="text"
             value={awayTeamName}
@@ -51,7 +51,7 @@ function Admin() {
           />
         </div>
         <div>
-          <span>Date and time:</span>
+          <span className="label">Fecha y Hora</span>
           <DatePicker
             selected={startDateTime}
             onChange={setStartDateTime}
@@ -61,10 +61,10 @@ function Admin() {
             locale="es"
           />
         </div>
-        <input type="button" onClick={createMatch} value="Create match" />
+        <input type="button" onClick={createMatch} value="Crear partido" />
       </div>
       <div>
-        <h4>List of matches</h4>
+        <h4>Lista de partidos</h4>
         {(matchesIds || []).map((matchAddress) => (
           <MatchItem key={matchAddress} matchAddress={matchAddress} />
         ))}

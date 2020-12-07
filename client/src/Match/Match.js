@@ -20,7 +20,7 @@ const getCurrentBet = (homeTeamName, awayTeamName, currentBet) => {
     !currentBet ||
     (currentBet.homeTeamScore === '-1' && currentBet.awayTeamScore === '-1')
   ) {
-    return "You haven't placed any bets yet";
+    return 'Todavía no has realizado apuestas en este partido';
   }
 
   return `${homeTeamName} ${currentBet.homeTeamScore} - ${awayTeamName} ${currentBet.awayTeamScore}`;
@@ -31,7 +31,7 @@ const getFinalResult = (homeTeamName, awayTeamName, currentBet) => {
     !currentBet ||
     (currentBet.homeTeamScore === '-1' && currentBet.awayTeamScore === '-1')
   ) {
-    return 'Final results are not ready yet';
+    return 'El resultado final no está listo todavía';
   }
 
   return `${homeTeamName} ${currentBet.homeTeamScore} - ${awayTeamName} ${currentBet.awayTeamScore}`;
@@ -81,27 +81,28 @@ function Match() {
 
   return (
     <div className="match">
-      <h3>Match detail page</h3>
-      <div>Home Team: {homeTeamName}</div>
-      <div>Away Team: {awayTeamName}</div>
+      <h3>Detalle de partido</h3>
+      <div>Equipo local: {homeTeamName}</div>
+      <div>Equipo visitante: {awayTeamName}</div>
       <div>
-        Date:{' '}
+        Fecha y hora:{' '}
         {format(startDate, "d 'de' MMMM yyyy '-' HH:mm 'hr'", { locale: es })}
       </div>
-      <div>Jackpot: {drizzle.web3.utils.fromWei(`${jackpot || 0}`)} ether</div>
+      <div>Pozo: {drizzle.web3.utils.fromWei(`${jackpot || 0}`)} ether</div>
       <div>
-        Current bet: {getCurrentBet(homeTeamName, awayTeamName, currentBet)}
+        Última apuesta: {getCurrentBet(homeTeamName, awayTeamName, currentBet)}
       </div>
       <div>
-        Final result: {getFinalResult(homeTeamName, awayTeamName, finalResult)}
+        Resultado final:{' '}
+        {getFinalResult(homeTeamName, awayTeamName, finalResult)}
       </div>
       <div>
         <button type="button" onClick={handleClaimBet}>
-          Claim bet
+          Reclamar apuesta
         </button>
       </div>
 
-      <h4>Place bet</h4>
+      <h4>Realizar apuesta</h4>
       <form ref={formRef} onSubmit={handlePlaceBet}>
         <label htmlFor="homeTeamScore">{homeTeamName}</label>
         <input
@@ -119,9 +120,9 @@ function Match() {
           defaultValue="0"
         />
 
-        <input className="button" value="Place Bet" type="submit" />
+        <input className="button" value="Apostar" type="submit" />
       </form>
-      <Link to="/matches">Go back to matches list</Link>
+      <Link to="/matches">Volver a la lista de partidos</Link>
     </div>
   );
 }

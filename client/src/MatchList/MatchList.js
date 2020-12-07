@@ -11,15 +11,15 @@ function MatchList() {
 
   return (
     <div className="match-list">
-      <h3>Welcome to the board of matches</h3>
+      <h3>Bienvenido al tablero de partidos</h3>
       <table>
         <thead>
           <tr>
-            <th>Match Address</th>
-            <th>Home Team</th>
-            <th>Away Team</th>
-            <th>Date</th>
-            <th>Actions</th>
+            <th>Id del partido</th>
+            <th>Equipo local</th>
+            <th>Equipo visitante</th>
+            <th>Fecha y hora</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
