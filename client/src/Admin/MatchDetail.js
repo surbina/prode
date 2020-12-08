@@ -34,7 +34,7 @@ function MatchDetail() {
 
   const startDate = fromUnixTime(parseInt(matchStartDate || 0, 10));
 
-  const handleSetFinaResult = (e) => {
+  const handleSetFinalResult = (e) => {
     e.preventDefault();
     const formData = new FormData(formRef.current);
 
@@ -60,7 +60,7 @@ function MatchDetail() {
       <div>Pozo: {drizzle.web3.utils.fromWei(`${jackpot || 0}`)} ether</div>
 
       <h4>Configurar resultado final</h4>
-      <form ref={formRef} onSubmit={handleSetFinaResult}>
+      <form ref={formRef} onSubmit={handleSetFinalResult}>
         <label htmlFor="homeTeamScore">{homeTeamName}</label>
         <input
           id="homeTeamScore"
@@ -77,7 +77,7 @@ function MatchDetail() {
           defaultValue="0"
         />
 
-        <input name="Place Bet" type="submit" />
+        <input value="Set final result" type="submit" />
       </form>
       <Link to="/admin">Volver a la pantalla de administración</Link>
     </div>
