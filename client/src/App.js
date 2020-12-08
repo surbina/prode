@@ -1,16 +1,12 @@
 import * as React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { DrizzleContext } from '@drizzle/react-plugin';
 import { Drizzle } from '@drizzle/store';
 
 import { Admin, MatchAdminDetail } from './Admin';
 import Match from './Match';
 import MatchList from './MatchList';
+import SplashScreen from './SplashScreen';
 import Prode from './contracts/Prode.json';
 
 const drizzleOptions = {
@@ -52,7 +48,7 @@ function App() {
                   <Match />
                 </Route>
                 <Route path="/">
-                  <Redirect to="/matches" />
+                  <SplashScreen />
                 </Route>
               </Switch>
             );

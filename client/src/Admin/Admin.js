@@ -2,6 +2,7 @@ import * as React from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import es from 'date-fns/locale/es';
 import getUnixTime from 'date-fns/getUnixTime';
+import { Link } from 'react-router-dom';
 
 import MatchItem from './MatchItem';
 import { useCacheCall, useCacheSend, useDrizzle } from '../drizzleHooks';
@@ -69,6 +70,7 @@ function Admin() {
           <MatchItem key={matchAddress} matchAddress={matchAddress} />
         ))}
       </div>
+      <Link to="/">Volver a la pantalla inicial</Link>
     </div>
   );
 }

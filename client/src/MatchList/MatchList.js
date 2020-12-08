@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 import { useCacheCall } from '../drizzleHooks';
 import MatchRow from './MatchRow';
@@ -28,6 +29,7 @@ function MatchList() {
           ))}
         </tbody>
       </table>
+      <Link to="/">Volver a la pantalla inicial</Link>
     </div>
   );
 }

@@ -5,3 +5,8 @@
 .match-list td, th {
   border: 1px solid black;
 }
+
+.match-list > a {
+  margin-top: 30px;
+  display: block;
+}

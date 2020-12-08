@@ -1,0 +1,32 @@
+.splash-screen {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.splash-screen .tiles {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.splash-screen .tiles .tile {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  flex: 1;
+}
+
+.splash-screen .tiles .tile.admin-tile {
+  margin-right: 120px;
+}
+
+.splash-screen .tiles .tile a {
+  align-self: center;
+}
+
+.splash-screen .tiles .tile ul {
+  margin-top: 0;
+}
