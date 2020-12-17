@@ -1,5 +1,7 @@
 # Sistema de Apuestas basado en Blockchain
 
+_Read this in [English](README.en.md)_
+
 ## Introducción
 
 Este repositorio contiene un proyecto desarrollado como prueba de concepto para el seminario de Blockchain y Smart Contracts de la [Maestría en Ingeniería de Sistemas de Información](https://www.frba.utn.edu.ar/posgrado/maestria-en-ingenieria-en-sistemas-de-informacion/) de la [Universidad Tecnológica Nacional](https://www.frba.utn.edu.ar/posgrado/).
